@@ -17,7 +17,7 @@
           "title": "Rng Seed"
         },
         "aind_behavior_services_pkg_version": {
-          "default": "0.9.0",
+          "default": "0.10.2",
           "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
           "title": "aind_behavior_services package version",
           "type": "string"
@@ -25,7 +25,7 @@
         "valve_open_time": {
           "description": "An array with the times (s) the valve is open during calibration",
           "items": {
-            "exclusiveMinimum": 0.0,
+            "exclusiveMinimum": 0,
             "type": "number"
           },
           "minItems": 1,
@@ -35,7 +35,7 @@
         "valve_open_interval": {
           "default": 0.2,
           "description": "Time between two consecutive valve openings (s)",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Valve open interval",
           "type": "number"
         },
@@ -73,8 +73,8 @@
       "title": "Task parameters"
     },
     "version": {
-      "const": "0.1.0",
-      "default": "0.1.0",
+      "const": "0.2.0",
+      "default": "0.2.0",
       "title": "Version",
       "type": "string"
     },

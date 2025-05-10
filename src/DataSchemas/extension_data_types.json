@@ -5,20 +5,20 @@
       "properties": {
         "valve_open_interval": {
           "description": "Time between two consecutive valve openings (s)",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Valve open interval",
           "type": "number"
         },
         "valve_open_time": {
           "description": "Valve open interval (s)",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Valve open time",
           "type": "number"
         },
         "water_weight": {
           "description": "Weight of water delivered (g)",
           "items": {
-            "exclusiveMinimum": 0.0,
+            "exclusiveMinimum": 0,
             "type": "number"
           },
           "minItems": 1,
@@ -121,7 +121,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "exclusiveMinimum": 0.0,
+                "exclusiveMinimum": 0,
                 "type": "number"
               },
               "type": "object"
@@ -147,8 +147,8 @@
           "description": "R2 metric from the linear model.",
           "oneOf": [
             {
-              "maximum": 1.0,
-              "minimum": 0.0,
+              "maximum": 1,
+              "minimum": 0,
               "type": "number"
             },
             {
@@ -163,7 +163,7 @@
           "oneOf": [
             {
               "items": {
-                "exclusiveMinimum": 0.0,
+                "exclusiveMinimum": 0,
                 "type": "number"
               },
               "minItems": 2,
