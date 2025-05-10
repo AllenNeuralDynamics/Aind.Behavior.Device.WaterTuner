@@ -17,7 +17,7 @@ namespace AindBehaviorWaterTuner.TaskLogic
     
         private double? _rngSeed;
     
-        private string _aindBehaviorServicesPkgVersion = "0.9.0";
+        private string _aindBehaviorServicesPkgVersion = "0.10.2";
     
         private System.Collections.Generic.List<double> _valveOpenTime = new System.Collections.Generic.List<double>();
     
@@ -173,7 +173,7 @@ namespace AindBehaviorWaterTuner.TaskLogic
     
         private AindBehaviorWaterTunerParameters _taskParameters = new AindBehaviorWaterTunerParameters();
     
-        private string _version = "0.1.0";
+        private string _version = "0.2.0";
     
         private string _stageName;
     

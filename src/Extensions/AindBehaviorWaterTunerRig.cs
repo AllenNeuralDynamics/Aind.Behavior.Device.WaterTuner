@@ -332,7 +332,7 @@ namespace AindBehaviorWaterTuner.Rig
     public partial class AindManipulatorDevice
     {
     
-        private string _deviceType = "stepperdriver";
+        private string _deviceType = "StepperDriver";
     
         private BaseModel _additionalSettings;
     
@@ -752,96 +752,10 @@ namespace AindBehaviorWaterTuner.Rig
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (Newtonsoft.Json v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class ConnectedClockOutput
-    {
-    
-        private string _targetDevice;
-    
-        private int _outputChannel;
-    
-        public ConnectedClockOutput()
-        {
-        }
-    
-        protected ConnectedClockOutput(ConnectedClockOutput other)
-        {
-            _targetDevice = other._targetDevice;
-            _outputChannel = other._outputChannel;
-        }
-    
-        /// <summary>
-        /// Optional device name to provide user additional information
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("target_device")]
-        [System.ComponentModel.DescriptionAttribute("Optional device name to provide user additional information")]
-        public string TargetDevice
-        {
-            get
-            {
-                return _targetDevice;
-            }
-            set
-            {
-                _targetDevice = value;
-            }
-        }
-    
-        /// <summary>
-        /// Output channel
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("output_channel", Required=Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DescriptionAttribute("Output channel")]
-        public int OutputChannel
-        {
-            get
-            {
-                return _outputChannel;
-            }
-            set
-            {
-                _outputChannel = value;
-            }
-        }
-    
-        public System.IObservable<ConnectedClockOutput> Process()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new ConnectedClockOutput(this)));
-        }
-    
-        public System.IObservable<ConnectedClockOutput> Process<TSource>(System.IObservable<TSource> source)
-        {
-            return System.Reactive.Linq.Observable.Select(source, _ => new ConnectedClockOutput(this));
-        }
-    
-        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
-        {
-            stringBuilder.Append("target_device = " + _targetDevice + ", ");
-            stringBuilder.Append("output_channel = " + _outputChannel);
-            return true;
-        }
-    
-        public override string ToString()
-        {
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append(GetType().Name);
-            stringBuilder.Append(" { ");
-            if (PrintMembers(stringBuilder))
-            {
-                stringBuilder.Append(" ");
-            }
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (Newtonsoft.Json v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class HarpBehavior
     {
     
-        private string _deviceType = "behavior";
+        private string _deviceType = "Behavior";
     
         private BaseModel _additionalSettings;
     
@@ -981,192 +895,6 @@ namespace AindBehaviorWaterTuner.Rig
             stringBuilder.Append("who_am_i = " + _whoAmI + ", ");
             stringBuilder.Append("serial_number = " + _serialNumber + ", ");
             stringBuilder.Append("port_name = " + _portName);
-            return true;
-        }
-    
-        public override string ToString()
-        {
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append(GetType().Name);
-            stringBuilder.Append(" { ");
-            if (PrintMembers(stringBuilder))
-            {
-                stringBuilder.Append(" ");
-            }
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (Newtonsoft.Json v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class HarpClockGenerator
-    {
-    
-        private string _deviceType = "clockgenerator";
-    
-        private BaseModel _additionalSettings;
-    
-        private BaseModel _calibration;
-    
-        private int _whoAmI = 1158;
-    
-        private string _serialNumber;
-    
-        private string _portName;
-    
-        private System.Collections.Generic.List<ConnectedClockOutput> _connectedClockOutputs = new System.Collections.Generic.List<ConnectedClockOutput>();
-    
-        public HarpClockGenerator()
-        {
-        }
-    
-        protected HarpClockGenerator(HarpClockGenerator other)
-        {
-            _deviceType = other._deviceType;
-            _additionalSettings = other._additionalSettings;
-            _calibration = other._calibration;
-            _whoAmI = other._whoAmI;
-            _serialNumber = other._serialNumber;
-            _portName = other._portName;
-            _connectedClockOutputs = other._connectedClockOutputs;
-        }
-    
-        [Newtonsoft.Json.JsonPropertyAttribute("device_type")]
-        public string DeviceType
-        {
-            get
-            {
-                return _deviceType;
-            }
-            set
-            {
-                _deviceType = value;
-            }
-        }
-    
-        /// <summary>
-        /// Additional settings
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("additional_settings")]
-        [System.ComponentModel.DescriptionAttribute("Additional settings")]
-        public BaseModel AdditionalSettings
-        {
-            get
-            {
-                return _additionalSettings;
-            }
-            set
-            {
-                _additionalSettings = value;
-            }
-        }
-    
-        /// <summary>
-        /// Calibration
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("calibration")]
-        [System.ComponentModel.DescriptionAttribute("Calibration")]
-        public BaseModel Calibration
-        {
-            get
-            {
-                return _calibration;
-            }
-            set
-            {
-                _calibration = value;
-            }
-        }
-    
-        [Newtonsoft.Json.JsonPropertyAttribute("who_am_i")]
-        public int WhoAmI
-        {
-            get
-            {
-                return _whoAmI;
-            }
-            set
-            {
-                _whoAmI = value;
-            }
-        }
-    
-        /// <summary>
-        /// Device serial number
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("serial_number")]
-        [System.ComponentModel.DescriptionAttribute("Device serial number")]
-        public string SerialNumber
-        {
-            get
-            {
-                return _serialNumber;
-            }
-            set
-            {
-                _serialNumber = value;
-            }
-        }
-    
-        /// <summary>
-        /// Device port name
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("port_name", Required=Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DescriptionAttribute("Device port name")]
-        public string PortName
-        {
-            get
-            {
-                return _portName;
-            }
-            set
-            {
-                _portName = value;
-            }
-        }
-    
-        /// <summary>
-        /// Connected clock outputs
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("connected_clock_outputs")]
-        [System.ComponentModel.DescriptionAttribute("Connected clock outputs")]
-        public System.Collections.Generic.List<ConnectedClockOutput> ConnectedClockOutputs
-        {
-            get
-            {
-                return _connectedClockOutputs;
-            }
-            set
-            {
-                _connectedClockOutputs = value;
-            }
-        }
-    
-        public System.IObservable<HarpClockGenerator> Process()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new HarpClockGenerator(this)));
-        }
-    
-        public System.IObservable<HarpClockGenerator> Process<TSource>(System.IObservable<TSource> source)
-        {
-            return System.Reactive.Linq.Observable.Select(source, _ => new HarpClockGenerator(this));
-        }
-    
-        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
-        {
-            stringBuilder.Append("device_type = " + _deviceType + ", ");
-            stringBuilder.Append("additional_settings = " + _additionalSettings + ", ");
-            stringBuilder.Append("calibration = " + _calibration + ", ");
-            stringBuilder.Append("who_am_i = " + _whoAmI + ", ");
-            stringBuilder.Append("serial_number = " + _serialNumber + ", ");
-            stringBuilder.Append("port_name = " + _portName + ", ");
-            stringBuilder.Append("connected_clock_outputs = " + _connectedClockOutputs);
             return true;
         }
     
@@ -1459,9 +1187,9 @@ namespace AindBehaviorWaterTuner.Rig
     public partial class AindBehaviorWaterTunerRig
     {
     
-        private string _aindBehaviorServicesPkgVersion = "0.9.0";
+        private string _aindBehaviorServicesPkgVersion = "0.10.2";
     
-        private string _version = "0.1.0";
+        private string _version = "0.2.0";
     
         private string _computerName;
     
@@ -1471,9 +1199,7 @@ namespace AindBehaviorWaterTuner.Rig
     
         private HarpBehavior _harpBehavior = new HarpBehavior();
     
-        private HarpClockGenerator _harpClockGenerator = new HarpClockGenerator();
-    
-        private AindManipulatorDevice _manipulator = new AindManipulatorDevice();
+        private AindManipulatorDevice _manipulator;
     
         public AindBehaviorWaterTunerRig()
         {
@@ -1487,7 +1213,6 @@ namespace AindBehaviorWaterTuner.Rig
             _rigName = other._rigName;
             _scale = other._scale;
             _harpBehavior = other._harpBehavior;
-            _harpClockGenerator = other._harpClockGenerator;
             _manipulator = other._manipulator;
         }
     
@@ -1584,28 +1309,10 @@ namespace AindBehaviorWaterTuner.Rig
         }
     
         /// <summary>
-        /// Harp clock generator
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("harp_clock_generator", Required=Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DescriptionAttribute("Harp clock generator")]
-        public HarpClockGenerator HarpClockGenerator
-        {
-            get
-            {
-                return _harpClockGenerator;
-            }
-            set
-            {
-                _harpClockGenerator = value;
-            }
-        }
-    
-        /// <summary>
         /// Manipulator
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("manipulator", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("manipulator")]
         [System.ComponentModel.DescriptionAttribute("Manipulator")]
         public AindManipulatorDevice Manipulator
         {
@@ -1637,7 +1344,6 @@ namespace AindBehaviorWaterTuner.Rig
             stringBuilder.Append("rig_name = " + _rigName + ", ");
             stringBuilder.Append("scale = " + _scale + ", ");
             stringBuilder.Append("harp_behavior = " + _harpBehavior + ", ");
-            stringBuilder.Append("harp_clock_generator = " + _harpClockGenerator + ", ");
             stringBuilder.Append("manipulator = " + _manipulator);
             return true;
         }
@@ -1702,19 +1408,9 @@ namespace AindBehaviorWaterTuner.Rig
             return Process<BaseModel>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<ConnectedClockOutput> source)
-        {
-            return Process<ConnectedClockOutput>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<HarpBehavior> source)
         {
             return Process<HarpBehavior>(source);
-        }
-
-        public System.IObservable<string> Process(System.IObservable<HarpClockGenerator> source)
-        {
-            return Process<HarpClockGenerator>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<ManipulatorPosition> source)
@@ -1747,9 +1443,7 @@ namespace AindBehaviorWaterTuner.Rig
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<AindManipulatorDevice>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<AxisConfiguration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BaseModel>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ConnectedClockOutput>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<HarpBehavior>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<HarpClockGenerator>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ManipulatorPosition>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SerialScale>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<AindBehaviorWaterTunerRig>))]

@@ -151,8 +151,8 @@
     "AindManipulatorDevice": {
       "properties": {
         "device_type": {
-          "const": "stepperdriver",
-          "default": "stepperdriver",
+          "const": "StepperDriver",
+          "default": "StepperDriver",
           "title": "Device Type",
           "type": "string"
         },
@@ -292,39 +292,11 @@
       "title": "BaseModel",
       "type": "object"
     },
-    "ConnectedClockOutput": {
-      "properties": {
-        "target_device": {
-          "default": null,
-          "description": "Optional device name to provide user additional information",
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Target Device"
-        },
-        "output_channel": {
-          "description": "Output channel",
-          "minimum": 0,
-          "title": "Output Channel",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "output_channel"
-      ],
-      "title": "ConnectedClockOutput",
-      "type": "object"
-    },
     "HarpBehavior": {
       "properties": {
         "device_type": {
-          "const": "behavior",
-          "default": "behavior",
+          "const": "Behavior",
+          "default": "Behavior",
           "title": "Device Type",
           "type": "string"
         },
@@ -381,78 +353,6 @@
         "port_name"
       ],
       "title": "HarpBehavior",
-      "type": "object"
-    },
-    "HarpClockGenerator": {
-      "properties": {
-        "device_type": {
-          "const": "clockgenerator",
-          "default": "clockgenerator",
-          "title": "Device Type",
-          "type": "string"
-        },
-        "additional_settings": {
-          "default": null,
-          "description": "Additional settings",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/BaseModel"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "calibration": {
-          "default": null,
-          "description": "Calibration",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/BaseModel"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "who_am_i": {
-          "const": 1158,
-          "default": 1158,
-          "title": "Who Am I",
-          "type": "integer"
-        },
-        "serial_number": {
-          "default": null,
-          "description": "Device serial number",
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Serial Number"
-        },
-        "port_name": {
-          "description": "Device port name",
-          "title": "Port Name",
-          "type": "string"
-        },
-        "connected_clock_outputs": {
-          "default": [],
-          "description": "Connected clock outputs",
-          "items": {
-            "$ref": "#/definitions/ConnectedClockOutput"
-          },
-          "title": "Connected Clock Outputs",
-          "type": "array"
-        }
-      },
-      "required": [
-        "port_name"
-      ],
-      "title": "HarpClockGenerator",
       "type": "object"
     },
     "ManipulatorPosition": {
@@ -558,14 +458,14 @@
   },
   "properties": {
     "aind_behavior_services_pkg_version": {
-      "default": "0.9.0",
+      "default": "0.10.2",
       "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
       "title": "aind_behavior_services package version",
       "type": "string"
     },
     "version": {
-      "const": "0.1.0",
-      "default": "0.1.0",
+      "const": "0.2.0",
+      "default": "0.2.0",
       "title": "Version",
       "type": "string"
     },
@@ -587,21 +487,23 @@
       "$ref": "#/definitions/HarpBehavior",
       "description": "Harp behavior"
     },
-    "harp_clock_generator": {
-      "$ref": "#/definitions/HarpClockGenerator",
-      "description": "Harp clock generator"
-    },
     "manipulator": {
-      "$ref": "#/definitions/AindManipulatorDevice",
-      "description": "Manipulator"
+      "default": null,
+      "description": "Manipulator",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AindManipulatorDevice"
+        },
+        {
+          "type": "null"
+        }
+      ]
     }
   },
   "required": [
     "rig_name",
     "scale",
-    "harp_behavior",
-    "harp_clock_generator",
-    "manipulator"
+    "harp_behavior"
   ],
   "title": "AindBehaviorWaterTunerRig",
   "type": "object"
