@@ -16,5 +16,5 @@ class SerialScale(rig.Device):
 class AindBehaviorWaterTunerRig(AindBehaviorRigModel):
     version: Literal[__version__] = __version__
     scale: SerialScale = Field(..., title="Serial scale device")
-    harp_behavior: rig.HarpBehavior = Field(..., description="Harp behavior")
+    harp_behavior: rig.harp.HarpBehavior = Field(..., description="Harp behavior")
     manipulator: Optional[aind_manipulator.AindManipulatorDevice] = Field(default=None, description="Manipulator")

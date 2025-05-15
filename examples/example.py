@@ -53,7 +53,7 @@ def mock_rig() -> AindBehaviorWaterTunerRig:
 
     return AindBehaviorWaterTunerRig(
         rig_name="testrig",
-        harp_behavior=rig.HarpBehavior(port_name="COM3"),
+        harp_behavior=rig.harp.HarpBehavior(port_name="COM3"),
         manipulator=aind_manipulator.AindManipulatorDevice(port_name="COM10", calibration=manipulator_calibration),
         scale=SerialScale(port_name="COM12"),
     )

@@ -334,6 +334,8 @@ namespace AindBehaviorWaterTuner.Rig
     
         private string _deviceType = "StepperDriver";
     
+        private string _deviceName;
+    
         private BaseModel _additionalSettings;
     
         private AindManipulatorCalibration _calibration;
@@ -351,6 +353,7 @@ namespace AindBehaviorWaterTuner.Rig
         protected AindManipulatorDevice(AindManipulatorDevice other)
         {
             _deviceType = other._deviceType;
+            _deviceName = other._deviceName;
             _additionalSettings = other._additionalSettings;
             _calibration = other._calibration;
             _whoAmI = other._whoAmI;
@@ -368,6 +371,23 @@ namespace AindBehaviorWaterTuner.Rig
             set
             {
                 _deviceType = value;
+            }
+        }
+    
+        /// <summary>
+        /// Device name
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("device_name")]
+        [System.ComponentModel.DescriptionAttribute("Device name")]
+        public string DeviceName
+        {
+            get
+            {
+                return _deviceName;
+            }
+            set
+            {
+                _deviceName = value;
             }
         }
     
@@ -463,6 +483,7 @@ namespace AindBehaviorWaterTuner.Rig
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("device_type = " + _deviceType + ", ");
+            stringBuilder.Append("device_name = " + _deviceName + ", ");
             stringBuilder.Append("additional_settings = " + _additionalSettings + ", ");
             stringBuilder.Append("calibration = " + _calibration + ", ");
             stringBuilder.Append("who_am_i = " + _whoAmI + ", ");
@@ -757,6 +778,8 @@ namespace AindBehaviorWaterTuner.Rig
     
         private string _deviceType = "Behavior";
     
+        private string _deviceName;
+    
         private BaseModel _additionalSettings;
     
         private BaseModel _calibration;
@@ -774,6 +797,7 @@ namespace AindBehaviorWaterTuner.Rig
         protected HarpBehavior(HarpBehavior other)
         {
             _deviceType = other._deviceType;
+            _deviceName = other._deviceName;
             _additionalSettings = other._additionalSettings;
             _calibration = other._calibration;
             _whoAmI = other._whoAmI;
@@ -791,6 +815,23 @@ namespace AindBehaviorWaterTuner.Rig
             set
             {
                 _deviceType = value;
+            }
+        }
+    
+        /// <summary>
+        /// Device name
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("device_name")]
+        [System.ComponentModel.DescriptionAttribute("Device name")]
+        public string DeviceName
+        {
+            get
+            {
+                return _deviceName;
+            }
+            set
+            {
+                _deviceName = value;
             }
         }
     
@@ -890,6 +931,7 @@ namespace AindBehaviorWaterTuner.Rig
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("device_type = " + _deviceType + ", ");
+            stringBuilder.Append("device_name = " + _deviceName + ", ");
             stringBuilder.Append("additional_settings = " + _additionalSettings + ", ");
             stringBuilder.Append("calibration = " + _calibration + ", ");
             stringBuilder.Append("who_am_i = " + _whoAmI + ", ");
@@ -1063,6 +1105,8 @@ namespace AindBehaviorWaterTuner.Rig
     
         private string _deviceType = "SerialScale";
     
+        private string _deviceName;
+    
         private BaseModel _additionalSettings;
     
         private BaseModel _calibration;
@@ -1076,6 +1120,7 @@ namespace AindBehaviorWaterTuner.Rig
         protected SerialScale(SerialScale other)
         {
             _deviceType = other._deviceType;
+            _deviceName = other._deviceName;
             _additionalSettings = other._additionalSettings;
             _calibration = other._calibration;
             _portName = other._portName;
@@ -1091,6 +1136,23 @@ namespace AindBehaviorWaterTuner.Rig
             set
             {
                 _deviceType = value;
+            }
+        }
+    
+        /// <summary>
+        /// Device name
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("device_name")]
+        [System.ComponentModel.DescriptionAttribute("Device name")]
+        public string DeviceName
+        {
+            get
+            {
+                return _deviceName;
+            }
+            set
+            {
+                _deviceName = value;
             }
         }
     
@@ -1160,6 +1222,7 @@ namespace AindBehaviorWaterTuner.Rig
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("device_type = " + _deviceType + ", ");
+            stringBuilder.Append("device_name = " + _deviceName + ", ");
             stringBuilder.Append("additional_settings = " + _additionalSettings + ", ");
             stringBuilder.Append("calibration = " + _calibration + ", ");
             stringBuilder.Append("port_name = " + _portName);
@@ -1187,7 +1250,7 @@ namespace AindBehaviorWaterTuner.Rig
     public partial class AindBehaviorWaterTunerRig
     {
     
-        private string _aindBehaviorServicesPkgVersion = "0.10.2";
+        private string _aindBehaviorServicesPkgVersion = "0.11.0";
     
         private string _version = "0.2.0";
     

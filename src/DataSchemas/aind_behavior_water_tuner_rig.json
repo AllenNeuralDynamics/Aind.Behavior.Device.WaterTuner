@@ -156,6 +156,19 @@
           "title": "Device Type",
           "type": "string"
         },
+        "device_name": {
+          "default": null,
+          "description": "Device name",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Device Name"
+        },
         "additional_settings": {
           "default": null,
           "description": "Additional settings",
@@ -300,6 +313,19 @@
           "title": "Device Type",
           "type": "string"
         },
+        "device_name": {
+          "default": null,
+          "description": "Device name",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Device Name"
+        },
         "additional_settings": {
           "default": null,
           "description": "Additional settings",
@@ -419,6 +445,19 @@
           "title": "Device Type",
           "type": "string"
         },
+        "device_name": {
+          "default": null,
+          "description": "Device name",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Device Name"
+        },
         "additional_settings": {
           "default": null,
           "description": "Additional settings",
@@ -458,7 +497,7 @@
   },
   "properties": {
     "aind_behavior_services_pkg_version": {
-      "default": "0.10.2",
+      "default": "0.11.0",
       "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
       "title": "aind_behavior_services package version",
       "type": "string"

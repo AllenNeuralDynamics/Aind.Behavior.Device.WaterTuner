@@ -50,7 +50,7 @@ launcher = [
 requires-dist = [
     { name = "aind-behavior-device-water-tuner", extras = ["launcher"], marker = "extra == 'dev'" },
     { name = "aind-behavior-experiment-launcher", extras = ["aind-services"], marker = "extra == 'launcher'" },
-    { name = "aind-behavior-services", specifier = "<0.11" },
+    { name = "aind-behavior-services", specifier = "<0.12" },
     { name = "autodoc-pydantic", extras = ["erdantic"], marker = "extra == 'docs'" },
     { name = "codespell", marker = "extra == 'dev'" },
     { name = "furo", marker = "extra == 'docs'" },
@@ -89,7 +89,7 @@ aind-services = [
 
 [[package]]
 name = "aind-behavior-services"
-version = "0.10.2"
+version = "0.11.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aind-behavior-curriculum" },
@@ -99,9 +99,9 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "semver" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d0/d8/2fbae3376c1e70d2e3e4c39926d0b0290bdb1e9267fb5d331a2d9644f73b/aind_behavior_services-0.10.2.tar.gz", hash = "sha256:6f84521e91377056444de1896d86864729624aa94eccf164b54cb0f8b30f6a43", size = 135934 }
+sdist = { url = "https://files.pythonhosted.org/packages/b6/74/fb4a3e6fc6d3618168f685a3504f6e8411706fd887aabfd2911be32488ef/aind_behavior_services-0.11.0.tar.gz", hash = "sha256:e9eb0dac83792f782ae00e75b7e2424c7e8cbd3fa83f9487350ac5cf301d8aee", size = 137680 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/07/ce/c3bc2c74dc27553dc656b7a7ee89ec7425de7eacd13be7b490a9c2025b1f/aind_behavior_services-0.10.2-py3-none-any.whl", hash = "sha256:ee4f5365db6ecd427b3fffe43688db79105b7244582262a36b38f6d7dafc25c2", size = 49479 },
+    { url = "https://files.pythonhosted.org/packages/d5/13/2bfce2afb11acd779d9e0bef4b15dc35f57afc5bf8c3ff33f79e7da7d430/aind_behavior_services-0.11.0-py3-none-any.whl", hash = "sha256:4e105f8b0212d3e675ee647e2dd2bc772b791867245f0601b65ac87ae94d4824", size = 50047 },
 ]
 
 [[package]]
@@ -464,18 +464,19 @@ wheels = [
 
 [[package]]
 name = "flask"
-version = "3.1.0"
+version = "3.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "blinker" },
     { name = "click" },
     { name = "itsdangerous" },
     { name = "jinja2" },
+    { name = "markupsafe" },
     { name = "werkzeug" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/89/50/dff6380f1c7f84135484e176e0cac8690af72fa90e932ad2a0a60e28c69b/flask-3.1.0.tar.gz", hash = "sha256:5f873c5184c897c8d9d1b05df1e3d01b14910ce69607a117bd3277098a5836ac", size = 680824 }
+sdist = { url = "https://files.pythonhosted.org/packages/c0/de/e47735752347f4128bcf354e0da07ef311a78244eba9e3dc1d4a5ab21a98/flask-3.1.1.tar.gz", hash = "sha256:284c7b8f2f58cb737f0cf1c30fd7eaf0ccfcde196099d24ecede3fc2005aa59e", size = 753440 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/af/47/93213ee66ef8fae3b93b3e29206f6b251e65c97bd91d8e1c5596ef15af0a/flask-3.1.0-py3-none-any.whl", hash = "sha256:d667207822eb83f1c4b50949b1623c8fc8d51f2341d65f72e1a1815397551136", size = 102979 },
+    { url = "https://files.pythonhosted.org/packages/3d/68/9d4508e893976286d2ead7f8f571314af6c2037af34853a30fd769c02e9d/flask-3.1.1-py3-none-any.whl", hash = "sha256:07aae2bb5eaf77993ef57e357491839f5fd9f4dc281593a81a9e4d79a24f295c", size = 103305 },
 ]
 
 [[package]]
@@ -1453,7 +1454,7 @@ wheels = [
 
 [[package]]
 name = "typer"
-version = "0.15.3"
+version = "0.15.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -1461,9 +1462,9 @@ dependencies = [
     { name = "shellingham" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/98/1a/5f36851f439884bcfe8539f6a20ff7516e7b60f319bbaf69a90dc35cc2eb/typer-0.15.3.tar.gz", hash = "sha256:818873625d0569653438316567861899f7e9972f2e6e0c16dab608345ced713c", size = 101641 }
+sdist = { url = "https://files.pythonhosted.org/packages/6c/89/c527e6c848739be8ceb5c44eb8208c52ea3515c6cf6406aa61932887bf58/typer-0.15.4.tar.gz", hash = "sha256:89507b104f9b6a0730354f27c39fae5b63ccd0c95b1ce1f1a6ba0cfd329997c3", size = 101559 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/48/20/9d953de6f4367163d23ec823200eb3ecb0050a2609691e512c8b95827a9b/typer-0.15.3-py3-none-any.whl", hash = "sha256:c86a65ad77ca531f03de08d1b9cb67cd09ad02ddddf4b34745b5008f43b239bd", size = 45253 },
+    { url = "https://files.pythonhosted.org/packages/c9/62/d4ba7afe2096d5659ec3db8b15d8665bdcb92a3c6ff0b95e99895b335a9c/typer-0.15.4-py3-none-any.whl", hash = "sha256:eb0651654dcdea706780c466cf06d8f174405a659ffff8f163cfbfee98c0e173", size = 45258 },
 ]
 
 [[package]]
