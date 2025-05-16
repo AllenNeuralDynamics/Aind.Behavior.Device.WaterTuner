@@ -1,6 +1,6 @@
 from pathlib import Path
 
-import aind_behavior_experiment_launcher.launcher.behavior_launcher as behavior_launcher
+import aind_behavior_experiment_launcher.behavior_launcher as behavior_launcher
 from aind_behavior_experiment_launcher import resource_monitor
 from aind_behavior_experiment_launcher.apps import BonsaiApp
 from aind_behavior_services.session import AindBehaviorSessionModel
