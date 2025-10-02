@@ -5,6 +5,7 @@ bin
 obj
 Packages
 Bonsai.exe.WebView2
+Bonsai/Settings/
 *.bin
 *.avi
 *.dll
@@ -12,7 +13,8 @@ Bonsai.exe.WebView2
 *.exe.settings
 *.bonsai.layout
 local
-*.snl
+.venv
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -81,12 +83,3 @@ ipython_config.py
 #   For a library or package, you might want to ignore these files since the code is
 #   intended to run in multiple environments; otherwise, check them in:
 # .python-version
-
-# mypy
-.mypy_cache/
-
-# ruff
-.ruff_cache/
-
-# venv files 
-.venv

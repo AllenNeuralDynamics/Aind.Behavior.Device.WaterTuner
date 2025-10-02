@@ -1,0 +1,19 @@
+# In order to get picked up, move this file to the root of the project or ./local
+
+data_dir: C:/Data
+allow_dirty: true
+
+watchdog:
+  project_name: "ADD PROJECT NAME HERE"
+  destination: '\\allen\\aind\\scratch\\water-tuner\\data'
+  delete_modalities_source_after_success: true
+  job_type: "ADD JOB TYPE HERE"
+  transfer_endpoint: "http://aind-data-transfer-service-dev/api/v2/submit_jobs"
+  s3_bucket: "default"
+
+default_behavior_picker:
+  config_library_dir: '\\allen\aind\scratch\AindBehavior.db\AindBehaviorDeviceWaterTuner'
+
+curriculum:
+  script: "curriculum run"
+  project_directory: "./src/aind_behavior_device_water_tuner/curricula/Aind.Behavior.Device.WaterTuner.Curricula"
