@@ -6,11 +6,8 @@
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:p2="clr-namespace:AllenNeuralDynamics.VersionControl;assembly=AllenNeuralDynamics.VersionControl"
-                 xmlns:p3="clr-namespace:AindBehaviorWaterTuner.Session;assembly=Extensions"
-                 xmlns:p4="clr-namespace:AindBehaviorWaterTuner.TaskLogic;assembly=Extensions"
-                 xmlns:p5="clr-namespace:AindBehaviorWaterTuner.Rig;assembly=Extensions"
-                 xmlns:p6="clr-namespace:AllenNeuralDynamics.AindBehaviorServices.DataTypes;assembly=AllenNeuralDynamics.AindBehaviorServices"
-                 xmlns:p7="clr-namespace:AindBehaviorWaterTuner.DataTypes;assembly=Extensions"
+                 xmlns:p3="clr-namespace:AindBehaviorDeviceWaterTunerDataSchema;assembly=Extensions"
+                 xmlns:p4="clr-namespace:AllenNeuralDynamics.AindBehaviorServices.DataTypes;assembly=AllenNeuralDynamics.AindBehaviorServices"
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -215,7 +212,9 @@
                                 <Name>SubjectSchema</Name>
                               </Expression>
                               <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p3:SerializeToJson" />
+                                <Combinator xsi:type="p3:SerializeToJson">
+                                  <p3:Formatting>None</p3:Formatting>
+                                </Combinator>
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Modality</Name>
@@ -243,7 +242,9 @@
                                 <Name>TaskLogicSchema</Name>
                               </Expression>
                               <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p4:SerializeToJson" />
+                                <Combinator xsi:type="p3:SerializeToJson">
+                                  <p3:Formatting>None</p3:Formatting>
+                                </Combinator>
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Modality</Name>
@@ -271,7 +272,9 @@
                                 <Name>RigSchema</Name>
                               </Expression>
                               <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p5:SerializeToJson" />
+                                <Combinator xsi:type="p3:SerializeToJson">
+                                  <p3:Formatting>None</p3:Formatting>
+                                </Combinator>
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Modality</Name>
@@ -441,7 +444,7 @@
                                 <Combinator xsi:type="p1:TimestampSoftwareEvent" />
                               </Expression>
                               <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p6:SerializeToJson" />
+                                <Combinator xsi:type="p4:SerializeToJson" />
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Modality</Name>
@@ -493,7 +496,9 @@
                     <Name>CalibrationModel</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:SerializeToJson" />
+                    <Combinator xsi:type="p3:SerializeToJson">
+                      <p3:Formatting>None</p3:Formatting>
+                    </Combinator>
                   </Expression>
                   <Expression xsi:type="ExternalizedMapping">
                     <Property Name="Name" DisplayName="SubjectName" />

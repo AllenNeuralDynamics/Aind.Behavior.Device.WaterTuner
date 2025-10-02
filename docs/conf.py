@@ -1,24 +1,21 @@
-import os
-import sys
-
-import erdantic as erd
-from pydantic import BaseModel
+# Configuration file for the Sphinx documentation builder.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import aind_behavior_device_water_tuner
 import aind_behavior_device_water_tuner.rig
 import aind_behavior_device_water_tuner.task_logic
 
-sys.path.insert(0, os.path.abspath("../src/DataSchemas"))
-
-SOURCE_ROOT = "https://github.com/AllenNeuralDynamics/Aind.Behavior.WaterTuner/tree/main/src/DataSchemas/"
+SOURCE_ROOT = "https://github.com/AllenNeuralDynamics/Aind.Behavior.Device.WaterTuner/tree/main/src/"
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "Aind Behavior WaterTuner project"
+project = " water-tuner "
 copyright = "2025, Allen Institute for Neural Dynamics"
-author = "Bruno Cruz"
-release = aind_behavior_device_water_tuner.__version__
+author = " Bruno F. Cruz "
+release = aind_behavior_device_water_tuner.__semver__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -32,7 +29,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.githubpages",
     "sphinx.ext.linkcode",
-    "sphinx_mdinclude",
+    "myst_parser",
     "sphinxcontrib.autodoc_pydantic",
 ]
 
@@ -49,7 +46,7 @@ autodoc_pydantic_settings_show_json = False
 
 html_theme = "furo"
 html_static_path = ["_static"]
-html_title = "Aind Behavior WaterTuner"
+html_title = "water-tuner"
 html_favicon = "_static/favicon.ico"
 html_theme_options = {
     "light_logo": "light-logo.svg",
@@ -64,6 +61,8 @@ html_show_copyright = False
 
 
 # -- Options for linkcode extension ---------------------------------------
+
+
 def linkcode_resolve(domain, info):
     if domain != "py":
         return None
@@ -71,13 +70,3 @@ def linkcode_resolve(domain, info):
         return None
     filename = info["module"].replace(".", "/")
     return f"{SOURCE_ROOT}/{filename}.py"
-
-
-# -- Class diagram generation (Optional) ---------------------------------------
-def export_model_diagram(model: BaseModel, root: str = "_static") -> None:
-    diagram = erd.create(model)
-    diagram.draw(f"{root}/{model.__name__}.svg")
-
-
-_diagram_root = "_static"
-# export_model_diagram(MyPydanticBaseModel, _diagram_root)

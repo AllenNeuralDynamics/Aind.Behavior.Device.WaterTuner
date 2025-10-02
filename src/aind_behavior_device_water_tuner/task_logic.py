@@ -1,12 +1,19 @@
+import logging
 from typing import Literal
 
 from aind_behavior_services.task_logic import AindBehaviorTaskLogicModel, TaskParameters
 from pydantic import Field, PositiveFloat
 
-from . import __version__
+from aind_behavior_device_water_tuner import (
+    __semver__,
+)
+
+logger = logging.getLogger(__name__)
+
+# ==================== MAIN TASK LOGIC CLASSES ====================
 
 
-class AindBehaviorWaterTunerParameters(TaskParameters):
+class AindBehaviorDeviceWaterTunerTaskParameters(TaskParameters):
     valve_open_time: list[PositiveFloat] = Field(
         ...,
         min_length=1,
@@ -26,9 +33,13 @@ class AindBehaviorWaterTunerParameters(TaskParameters):
     )
 
 
-class AindBehaviorWaterTunerTaskLogic(AindBehaviorTaskLogicModel):
-    """WaterTuner operation control model that is used to run a calibration data acquisition workflow"""
+class AindBehaviorDeviceWaterTunerTaskLogic(AindBehaviorTaskLogicModel):
+    """
+    Main task logic model for the water-tuner task.
+    """
 
-    name: str = Field(default="WaterValveCalibrationLogic", title="Task name")
-    version: Literal[__version__] = __version__
-    task_parameters: AindBehaviorWaterTunerParameters = Field(..., title="Task parameters", validate_default=True)
+    version: Literal[__semver__] = __semver__
+    name: Literal["AindBehaviorDeviceWaterTuner"] = Field(
+        default="AindBehaviorDeviceWaterTuner", description="Name of the task logic", frozen=True
+    )
+    task_parameters: AindBehaviorDeviceWaterTunerTaskParameters = Field(description="Parameters of the task logic")

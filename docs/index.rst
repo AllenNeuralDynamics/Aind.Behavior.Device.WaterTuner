@@ -1,14 +1,17 @@
-Welcome to the Aind Behavior WaterTuner project documentation!
-========================================================================
+Welcome to the water-tuner project documentation!
+=========================================================
 
-.. mdinclude:: ../README.md
+.. include:: ../README.md
+   :parser: myst_parser.sphinx_
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   self
    api
    json-schemas
+   GitHub Source Code <https://github.com/AllenNeuralDynamics/Aind.Behavior.Device.WaterTuner>
 
 Indices and tables
 ==================

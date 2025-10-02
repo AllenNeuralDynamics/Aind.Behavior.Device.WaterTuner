@@ -1,44 +1,70 @@
 from pathlib import Path
 
-import aind_behavior_experiment_launcher.behavior_launcher as behavior_launcher
-from aind_behavior_experiment_launcher import resource_monitor
-from aind_behavior_experiment_launcher.apps import AindBehaviorServicesBonsaiApp
 from aind_behavior_services.session import AindBehaviorSessionModel
+from clabe import resource_monitor
+from clabe.apps import (
+    AindBehaviorServicesBonsaiApp,
+    BonsaiAppSettings,
+)
+from clabe.launcher import (
+    DefaultBehaviorPicker,
+    DefaultBehaviorPickerSettings,
+    Launcher,
+    LauncherCliArgs,
+)
 from pydantic_settings import CliApp
 
-from aind_behavior_device_water_tuner.rig import AindBehaviorWaterTunerRig
-from aind_behavior_device_water_tuner.task_logic import AindBehaviorWaterTunerTaskLogic
+from .rig import AindBehaviorDeviceWaterTunerRig
+from .task_logic import AindBehaviorDeviceWaterTunerTaskLogic
 
 
-def make_launcher(settings: behavior_launcher.BehaviorCliArgs) -> behavior_launcher.BehaviorLauncher:
-    data_dir = r"C:/Data"
-    srv = behavior_launcher.BehaviorServicesFactoryManager()
-    srv.attach_app(AindBehaviorServicesBonsaiApp(Path(r"./src/main.bonsai")))
-    srv.attach_resource_monitor(
-        resource_monitor.ResourceMonitor(
-            constrains=[
-                resource_monitor.available_storage_constraint_factory(data_dir, 2e11),
-            ]
-        )
+def make_launcher(settings: LauncherCliArgs) -> Launcher:
+    monitor = resource_monitor.ResourceMonitor(
+        constrains=[
+            resource_monitor.available_storage_constraint_factory(settings.data_dir, 2e11),
+        ]
     )
-
-    return behavior_launcher.BehaviorLauncher(
-        rig_schema_model=AindBehaviorWaterTunerRig,
-        session_schema_model=AindBehaviorSessionModel,
-        task_logic_schema_model=AindBehaviorWaterTunerTaskLogic,
+    bonsai_app = AindBehaviorServicesBonsaiApp(BonsaiAppSettings(workflow=Path(r"./src/main.bonsai")))
+    picker = DefaultBehaviorPicker[
+        AindBehaviorDeviceWaterTunerRig, AindBehaviorSessionModel, AindBehaviorDeviceWaterTunerTaskLogic
+    ](
+        settings=DefaultBehaviorPickerSettings()  # type: ignore[call-arg]
+    )
+    launcher = Launcher(
+        rig=AindBehaviorDeviceWaterTunerRig,
+        session=AindBehaviorSessionModel,
+        task_logic=AindBehaviorDeviceWaterTunerTaskLogic,
         settings=settings,
-        picker=behavior_launcher.DefaultBehaviorPicker(
-            config_library_dir=Path(r"\\allen\aind\scratch\AindBehavior.db\AindBehaviorWaterTuner")
-        ),
-        services=srv,
     )
 
+    # Get user input
+    launcher.register_callable(
+        [
+            picker.initialize,
+            picker.pick_session,
+            picker.pick_trainer_state,
+            picker.pick_rig,
+        ]
+    )
 
-def main():
-    args = CliApp().run(behavior_launcher.BehaviorCliArgs)
-    launcher = make_launcher(args)
-    launcher.main()
-    return None
+    # Check resources
+    launcher.register_callable(monitor.build_runner())
+
+    # Run the task via Bonsai
+    launcher.register_callable(bonsai_app.build_runner(allow_std_error=True))
+
+    return launcher
+
+
+class ClabeCli(LauncherCliArgs):
+    def cli_cmd(self):
+        launcher = make_launcher(self)
+        launcher.main()
+        return None
+
+
+def main() -> None:
+    CliApp().run(ClabeCli)
 
 
 if __name__ == "__main__":
